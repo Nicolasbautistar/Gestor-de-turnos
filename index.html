@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> &#128223; CODER HOUSE PROJECT</title>
+    <!--BOOTSTRAP CSS - PERMITE EL MANEJO DE COLORES Y ESTILOS DE LA PAGINA-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="modal"  style="display: none;">
+        <div class="contenidomodal">
+            <form class="modal_Form" action="" id="inputs">
+
+                <h2 id="anuncio"></h2>
+                <div id="datos">
+                    <!--Aqui van los datos del Registro ingresados con Inner-->
+                </div>
+
+                <div class="btn__form"> <br>
+                    <input class="btn__submit" id="BtnAceptar" type="submit" value="Aceptar" onclick="Cerrar()" />
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    
+
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0a0b3f;">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+               <!--  <img src="img/Logo.png" alt="Landing"> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CABECERA -->
+
+    <header class="main-header" id="inicio">
+        <!--IMAGEN DE FONDO-->
+        <div class="background-overlay text-white py-5">
+            <!--se pondrá un fondo encima de la imagen-->
+            <div class="container">
+                <!--Agregar Contenedor-->
+                <div>
+                    <!--Agregar Fila-->
+                    <div class="col-md-6 text-center justify-content-center align-self-center" id="texto">
+                        <h1>Pide aqui tu turno</h1>
+                        <p>En nuestros bancos preferimos ahorrarte tiempo y protegerte del Covid evitando las filas,
+                            para eso creamos nuestra app para que pidas tu turno a la fecha y hora que desees, tan solo
+                            debes registrarte y completar los datos en el siguiente link.</p>
+                        <a href="#" id="turno" class="btn btn-outline-secondary btn-lg text-white" onclick="Abrir()">
+                            Turno
+                        </a>
+                    </div>
+                    <div class="col-md-6" id="imagen">
+                        <img src="img/calendario.jpg" id="imagen" alt=" Imagen del Producto"
+                            class="img-fluid d-none d-sm-block style=width:100%">
+                    </div>
+                </div>
+                <!--FORMULARIO-->
+                <div class="Formulario" id="contenedor" style="display: none;">
+                    <form class="form__top" action="" id="inputs1">
+                        <input class="input" type="text" id="nombre" placeholder="&#128100;  Nombre" maxlength="45"
+                            required autofocus>
+                        <br>
+                        <input class="input" type="email" placeholder="&#9993;  Email" id="email" maxlength="80"
+                            required>
+                        <br>
+                        <input class="input" type="number" placeholder="&#128223;  Identificación" id="doc" min="0"
+                            max="99999999999999" required>
+                        <br>
+                        <input id="fecha" class="inputtime" type="date" min='2020-08-01' max='2000-13-13' required>
+                        <br>
+                        <input class="inputtime" type="time" id="hora" min="08:00" max="16:00" required>
+                        <br>
+                        <p class="titulo"> Tipo de consulta</p>
+                        <select name="consulta" class="select" id="consulta">
+
+                            <option class="form__top" selected label="&#128221; Seleccionar" value="0"></option>
+                            <optgroup label="Caja">
+                                <option value="1">Pagos, depositos o consignaciones</option>
+                                <option value="2">Retiros de Dinero</option>
+                                <option value="3">Cambio de Divizas</option>
+                                <option value="4">Otros</option>
+                            </optgroup>
+                            <optgroup label="Atención al Cliente">
+                                <option value="5">Asesoramiento Financiero</option>
+                                <option value="6">Consultas generales</option>
+                                <option value="7">Prestamos</option>
+                                <option value="8">Otros</option>
+                            </optgroup>
+                        </select>
+
+
+
+
+                        <div class="btn__form"> <br>
+                            <input class="btn__submit" type="submit" value="CONTINUAR" onclick="seleccionar()" />
+
+                            <input class="btn__reset" type="reset" value="LIMPIAR" />
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="Formulario" id="contenedor2" style="display: none;">
+                    <form class="form__top" action="" id="inputs2">
+                        <p class="titulo"> Seleccione fecha y hora que desea el turno</p>
+                        
+                        <input id="fecha" class="inputtime" type="date" min='2020-08-01' max='2000-13-13' required>
+                        <input class="inputtime" type="time" id="hora" min="08:00" max="16:00" required>
+                        <br>
+                        <br>
+                        <h3> Recuerda que nuestro horario de atención es de 08:00 a 16:00</h3>
+                        <h3 id="VerificarTurno"> Verifica la disponibilidad del turno</h3>
+                        <h3 id="turnoNoDisponible"> Turno no Disponible</h3>
+                        
+                        <h3 id="turnoDisponible" style="display: none;"> Turno Disponible</h3>
+                        <div class="btn__form"> <br>
+                            <input class="btn__submit" id="BtnRegistrar" type="button" value="REGISTRAR"
+                                onclick="Registrar()"/>
+                            <input class="btn__reset" id="BtnVerificar" type="submit" value="VERIFICAR" onclick="Verificar()"/>
+
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="Formulario2" id="contenedor3" style="display: none;">
+                    <form class="form__top" action="" id="inputs2">
+                        <p class="titulo2"> ¡Tu turno ha sido registrado exitosamente!</p>
+                        <p id="datos2"></p>
+                        
+                       
+                        
+                        <div class="btn__form"> <br>
+                            <input class="btn__submit" id="BtnAceptar" type="submit" value="ACEPTAR"
+                                onclick="Aceptar()"/>
+                           
+
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </header>
+
+
+
+    <!--SOBRE NOSOTROS-->
+    <section class="bg-light text-center" id="nosotros">
+        <div class="container">
+            <div class="row" id="Sobre">
+                <div class="m-5">
+                    <h3>Sobre Nosotros</h3>
+                    <p>Somos un banco NN, con más de 50 sedes y puntos de atención distribuidos en todo Colombia, aqui
+                        puedes realizar pagos, transacciones, consultas, tambien te asesoramos para que puedas iniciar
+                        tu vida crediticia.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--ACORDEON-->
+    <section class="container text-center py-5">
+        <div class="row">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="false" aria-controls="collapseOne">
+                                ¿Cuál es el horario de atención en nuestro Banco?
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            En nuestro Banco atendemos de Lunes a Sabado, desde las 8:00am hasta las 4:00pm de la tarde.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Dónde estamos ubicados?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Tenemos más de 50 puntos de atención distribuidos en todo el País, en ciudades centrales
+                            como Bogotá, Medellín, Cartagena, Cali, Santa Marta, Neiva, Pereira, Villavicencio.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Cómo manejan los protocolos de Bioseguridad frente al Covid?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            En nuestro Banco, nos preocupamos por ti, por esta razón evitamos el congestionamiento de
+                            personas en nuestros puntos de atención. Gracias a la nueva aplicación de turnos, eliminamos
+                            las filas de personas, y llegarás directamente a ser atendido si sacaste tu turno
+                            previamente.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="team text-center">
+        <div class="container py-5">
+            <h1 class="text-white">Equipo</h1>
+            <br>
+            <div class="row">
+                <!--Participantes-->
+                <div class="col-lg-3">
+                    <div class="card" id="recuadros">
+                        <div class="card-body">
+                            <img src="img/person.png" class="img-fluid rounded-circle w-50" alt="Person One">
+                            <h3>Nicolás Rojas</h3>
+                            <p>Desarrollador</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="p-4">
+                                    <a href="http://facebook.com" target="_blank">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://twitter.com" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://instagram.com" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card" id="recuadros">
+                        <div class="card-body">
+                            <img src="img/person.png" class="img-fluid rounded-circle w-50" alt="Person One">
+                            <h3>Coder House</h3>
+                            <p>Empresa de Desarrollo</p>
+                            <div class="d-flex flex-row justify-content-center">
+                                <div class="p-4">
+                                    <a href="http://facebook.com" target="_blank">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://twitter.com" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                                <div class="p-4">
+                                    <a href="http://instagram.com" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--CONTACTENOS-->
+    <section class="bg-light py-5" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h3>Contactenos</h3>
+
+                    <form action="">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-user input-group-text"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-envelope input-group-text"></i>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-pencil-alt input-group-text"></i>
+                            </div>
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Escribe tu mensaje"
+                                class="form-control"></textarea>
+                            </textarea>
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block">
+                            Envía tu Mensaje
+                        </button>
+                    </form>
+                </div>
+                <div class="col-lg-3 align-self-center" id="image2">
+                    <img src="./img/image2.jpg" style="width: 130%">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--Pie de Página-->
+    <footer>
+        <div class="container p-3 text-white text-center">
+            <p>Copyright &copy; 2021</p>
+        </div>
+    </footer>
+
+    <!--BOOTSTRAP JAVASCRIPT - PERMITE EL MANEJO DEL RESPONSIVE, MENÚ DESPLEGABLE-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/Objeto.js"></script>
+    <script type="text/javascript" src="js/Abrir.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
+    <script type="text/javascript" src="js/seleccionar.js"></script>
+    <script type="text/javascript" src="js/registrar.js"></script> 
+    <script type="text/javascript" src="js/verificar.js"></script>        
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/cerrar.js"></script>
+    <script type="text/javascript" src="js/aceptar.js"></script>
+
+</body>
+
+</html>
