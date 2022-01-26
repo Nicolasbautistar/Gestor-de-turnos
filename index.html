@@ -99,10 +99,6 @@
                         <input class="input" type="number" placeholder="&#128223;  Identificación" id="doc" min="0"
                             max="99999999999999" required>
                         <br>
-                        <input id="fecha" class="inputtime" type="date" min='2020-08-01' max='2000-13-13' required>
-                        <br>
-                        <input class="inputtime" type="time" id="hora" min="08:00" max="16:00" required>
-                        <br>
                         <p class="titulo"> Tipo de consulta</p>
                         <select name="consulta" class="select" id="consulta">
 
@@ -143,13 +139,13 @@
                         <br>
                         <h3> Recuerda que nuestro horario de atención es de 08:00 a 16:00</h3>
                         <h3 id="VerificarTurno"> Verifica la disponibilidad del turno</h3>
-                        <h3 id="turnoNoDisponible"> Turno no Disponible</h3>
+                        <h3 id="turnoNoDisponible" style="display: none;"> Turno no Disponible</h3>
                         
                         <h3 id="turnoDisponible" style="display: none;"> Turno Disponible</h3>
                         <div class="btn__form"> <br>
-                            <input class="btn__submit" id="BtnRegistrar" type="button" value="REGISTRAR"
+                            <input class="btn__submit" id="BtnRegistrar" style="display: none;" type="button" value="REGISTRAR"
                                 onclick="Registrar()"/>
-                            <input class="btn__reset" id="BtnVerificar" type="submit" value="VERIFICAR" onclick="Verificar()"/>
+                            <input class="btn__reset" id="BtnVerificar"  type="submit" value="VERIFICAR" onclick="Verificar()"/>
 
 
                         </div>
@@ -166,7 +162,7 @@
                        
                         
                         <div class="btn__form"> <br>
-                            <input class="btn__submit" id="BtnAceptar" type="submit" value="ACEPTAR"
+                            <input class="btn__submit" id="BtnAceptar" type="button" value="ACEPTAR"
                                 onclick="Aceptar()"/>
                            
 

@@ -3,6 +3,7 @@ function seleccionar(){
     
     let consulta= $("#consulta").val();
     let documento= $("#doc").val(); 
+    let email=$("#email").val();
     $("#BtnRegistrar").hide();
     $("#BtnVerificar").fadeIn();
     $("#turnoNoDisponible").hide();
@@ -31,7 +32,16 @@ function seleccionar(){
             $(".modal").fadeIn(1000); 
 
             break;         
-            }       
+            } 
+            if(search.email===(email))
+            {   
+            document.getElementById("anuncio").innerHTML="¡ESTE CORREO YA TIENE UN TURNO RESERVADO!";
+            
+            document.getElementById("datos").innerHTML="<p> <br>  Recuerda que solo puedes registrar un turno por correo <br> <br> </p>";
+            $(".modal").fadeIn(1000); 
+
+            break;         
+            }      
         }           
             console.log("Documento: " + documento + " Consulta: " + consulta);                    
             $("#contenedor").hide(1000);

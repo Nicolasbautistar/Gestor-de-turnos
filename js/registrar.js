@@ -2,6 +2,12 @@
 
 		function Registrar (){
 
+            $("#inputs2").submit(function(e){
+                e.preventDefault();
+                
+                console.log(e.target);
+            });
+
             let nombre= $("input#nombre").val();           
             let email=  $("input#email").val();
             let consulta= $("#consulta").val();

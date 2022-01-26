@@ -36,18 +36,33 @@ function Verificar (){
                 document.getElementById("hora").value=""; 
                 $("#VerificarTurno").hide();                                         
                 $("#turnoNoDisponible").fadeIn();
-              
-                                          
+                $("#turnoDisponible").hide();
+                $("#BtnRegistrar").hide();
+                $("#BtnVerificar").fadeIn();              
+                     
                 
                                 
-            } 
-            else{
+            } else{
                 console.log("FADE IN BOTON");
                 $("#BtnVerificar").hide();
-                $("#VerificarTurno").hide(500);
-                $("#turnoDisponible").fadeIn(500);
-                $("#BtnRegistrar").fadeIn(1000);
+                $("#VerificarTurno").hide();
+                $("#turnoDisponible").fadeIn();
+                $("#BtnRegistrar").fadeIn();
+                $("#turnoNoDisponible").hide();
+                
+                
+
             }
+            
         }
+       
+
+        
+
+            
+           /*  if((search.hora!==hora)&&(search.fecha!==fecha)){
+               
+            } */
+        
 }
 }
